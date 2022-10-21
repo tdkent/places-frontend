@@ -1,18 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 
-import UsersList from "../components/UsersList";
+import UsersList from '../components/UsersList'
+import ErrorModal from '../../shared/components/UIElements/ErrorModal'
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner'
+import { useHttpClient } from '../../shared/hooks/http-hook'
 
 const Users = () => {
-  const USERS = [
-    {
-      id: "u1",
-      name: "Jean Sibelius",
-      image:
-        "https://images.pexels.com/photos/852793/pexels-photo-852793.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-      places: 10,
-    },
-  ];
-  return <UsersList items={USERS} />;
-};
+  const { isLoading, error, sendRequest, clearError } = useHttpClient()
+  const [users, setUsers] = useState([])
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const data = await sendRequest(`http://localhost:4000/api/users`)
+        setUsers(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getUsers()
+  }, [sendRequest]) // sendRequest is a dependency of useEffect since it is coming from outside the useEffect function. Note that is why useCallback is wrapped around useHttpClient hook, to prevent an infinite loop of sendRequest firing.
 
-export default Users;
+  return (
+    <>
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && (
+        <div className='center'>
+          <LoadingSpinner />
+        </div>
+      )}
+      <UsersList items={users} />
+    </>
+  )
+}
+
+export default Users
