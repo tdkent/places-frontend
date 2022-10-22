@@ -34,7 +34,7 @@ const Auth = () => {
     e.preventDefault()
     if (isLogIn) {
       try {
-        const response = await sendRequest(
+        const data = await sendRequest(
           'http://localhost:4000/api/users/login',
           'POST',
           JSON.stringify({
@@ -43,14 +43,13 @@ const Auth = () => {
           }),
           { 'Content-Type': 'application/json' }
         )
-        console.log('login response: ', response)
-        auth.login()
+        auth.login(data.user.id)
       } catch (error) {
         console.log(error)
       }
     } else {
       try {
-        const response = await sendRequest(
+        const data = await sendRequest(
           'http://localhost:4000/api/users/register',
           'POST',
           JSON.stringify({
@@ -60,8 +59,7 @@ const Auth = () => {
           }),
           { 'Content-Type': 'application/json' }
         )
-        console.log('register response: ', response)
-        auth.login()
+        auth.login(data.user.id)
       } catch (error) {
         console.log(error)
       }
