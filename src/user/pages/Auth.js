@@ -5,6 +5,7 @@ import Input from '../../shared/components/FormElements/Input'
 import Button from '../../shared/components/FormElements/Button'
 import ErrorModal from '../../shared/components/UIElements/ErrorModal'
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner'
+import ImageUpload from '../../shared/components/FormElements/ImageUpload'
 import './Auth.css'
 import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../shared/util/validators'
 import { useForm } from '../../shared/hooks/form-hook'
@@ -109,6 +110,7 @@ const Auth = () => {
               onInput={inputHandler}
             />
           )}
+          {!isLogIn && <ImageUpload id='image' center />}
           <Input
             element='input'
             id='email'
