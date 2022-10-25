@@ -44,7 +44,8 @@ const Auth = () => {
           }),
           { 'Content-Type': 'application/json' }
         )
-        auth.login(data.user.id)
+        console.log({ data })
+        auth.login(data.userId, data.token)
       } catch (error) {
         console.log(error)
       }
@@ -58,7 +59,8 @@ const Auth = () => {
         // 'image' is the key that the backend multer function is expecting
         formData.append('image', formState.inputs.image.value)
         const data = await sendRequest('http://localhost:4000/api/users/register', 'POST', formData)
-        auth.login(data.user.id)
+        console.log({ data })
+        auth.login(data.userId, data.token)
       } catch (error) {
         console.log(error)
       }

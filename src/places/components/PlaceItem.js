@@ -27,8 +27,9 @@ const PlaceItem = ({ id, image, title, address, coordinates, description, creato
   const confirmDeleteHandler = async () => {
     try {
       setShowConfirmModal(false)
-      console.log()
-      await sendRequest(`http://localhost:4000/api/places/${id}`, 'DELETE')
+      await sendRequest(`http://localhost:4000/api/places/${id}`, 'DELETE', null, {
+        Authorization: `Bearer ${auth.token}`,
+      })
       const updatePlacesArray = items.filter((place) => place.id !== id)
       setPlaces(updatePlacesArray)
     } catch (error) {
