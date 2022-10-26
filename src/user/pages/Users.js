@@ -11,7 +11,7 @@ const Users = () => {
   useEffect(() => {
     const getUsers = async () => {
       try {
-        const data = await sendRequest(`http://localhost:4000/api/users`)
+        const data = await sendRequest(`${process.env.REACT_APP_API_URL}/users`)
         setUsers(data)
       } catch (error) {
         console.log(error)

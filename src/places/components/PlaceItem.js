@@ -27,7 +27,7 @@ const PlaceItem = ({ id, image, title, address, coordinates, description, creato
   const confirmDeleteHandler = async () => {
     try {
       setShowConfirmModal(false)
-      await sendRequest(`http://localhost:4000/api/places/${id}`, 'DELETE', null, {
+      await sendRequest(`${process.env.REACT_APP_API_URL}/places/${id}`, 'DELETE', null, {
         Authorization: `Bearer ${auth.token}`,
       })
       const updatePlacesArray = items.filter((place) => place.id !== id)
@@ -76,7 +76,7 @@ const PlaceItem = ({ id, image, title, address, coordinates, description, creato
         <Card className='place-item__content'>
           {isLoading && <LoadingSpinner asOverlay />}
           <div className='place-item__image'>
-            <img src={'http://localhost:4000/' + image} alt={title} />
+            <img src={`${process.env.REACT_APP_ASSET_API}` + image} alt={title} />
           </div>
           <div className='place-item__info'>
             <h2>{title}</h2>

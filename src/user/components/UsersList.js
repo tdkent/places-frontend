@@ -15,11 +15,14 @@ const UsersList = ({ items }) => {
     )
   }
   return (
-    <ul className='users-list'>
-      {items.map((user) => (
-        <UserItem key={user.id} id={user.id} image={user.image} name={user.username} placeCount={user.places.length} />
-      ))}
-    </ul>
+    <>
+      <h2 className='users-list-header'>List of Travellers:</h2>
+      <ul className='users-list'>
+        {items.map((user) => (
+          <UserItem key={user.id} id={user.id} image={user.image} name={user.username} placeCount={user.places.length} />
+        ))}
+      </ul>
+    </>
   )
 }
 

@@ -7,4 +7,11 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+   /*  border:1px solid white; */
   }
+
+.users-list-header {
+  text-align: center;
+  color: #f1f0ea;
+  font-size: 2rem;
+}
