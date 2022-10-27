@@ -16,7 +16,7 @@ const UsersList = ({ items }) => {
   }
   return (
     <>
-      <h2 className='users-list-header'>List of Travellers:</h2>
+      <h2 className='users-list-header'>SharePlace Travellers</h2>
       <ul className='users-list'>
         {items.map((user) => (
           <UserItem key={user.id} id={user.id} image={user.image} name={user.username} placeCount={user.places.length} />

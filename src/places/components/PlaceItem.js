@@ -38,7 +38,6 @@ const PlaceItem = ({ id, image, title, address, coordinates, description, creato
   }
 
   const auth = useContext(AuthContext)
-
   return (
     <>
       <ErrorModal error={error} onClear={clearError} />
@@ -48,7 +47,7 @@ const PlaceItem = ({ id, image, title, address, coordinates, description, creato
         header={address}
         contentClass='place-item__modal-content'
         footerClass='place-item__modal-actions'
-        footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
+        footer={<Button onClick={closeMapHandler}>Close</Button>}
       >
         <div className='map-container'>
           <Map center={coordinates} zoom={16} />
@@ -70,7 +69,9 @@ const PlaceItem = ({ id, image, title, address, coordinates, description, creato
           </>
         }
       >
-        <p>Are you sure you want to delete?</p>
+        <p>
+          Are you sure you want to delete <b>{title}</b>?
+        </p>
       </Modal>
       <li className='place-item'>
         <Card className='place-item__content'>
@@ -80,18 +81,18 @@ const PlaceItem = ({ id, image, title, address, coordinates, description, creato
           </div>
           <div className='place-item__info'>
             <h2>{title}</h2>
-            <h3>{address}</h3>
+            <p>{address}</p>
             <p>{description}</p>
           </div>
           <div className='place-item__actions'>
             <Button inverse onClick={openMapHandler}>
-              VIEW ON MAP
+              View on Map
             </Button>
-            {auth.isLoggedIn && creatorId === auth.userId && (
+            {auth.isLoggedIn && creatorId.id === auth.userId && (
               <>
-                <Button to={`/places/${id}`}>EDIT</Button>
+                <Button to={`/places/${id}`}>Edit</Button>
                 <Button danger onClick={showDeleteWarningHandler}>
-                  DELETE
+                  Delete
                 </Button>
               </>
             )}

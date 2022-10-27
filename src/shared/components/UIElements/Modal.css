@@ -12,7 +12,7 @@
 .modal__header {
   width: 100%;
   padding: 1rem 0.5rem;
-  background: #2a006e;
+  background: #28779e;
   color: white;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .modal__content {
-  padding: 1rem 0.5rem;
+  padding: 1rem;
 }
 
 .modal__footer {
@@ -30,8 +30,8 @@
 
 @media (min-width: 768px) {
   .modal {
-    left: calc(50% - 20rem);
-    width: 40rem;
+    left: calc(50% - 25rem);
+    width: 50rem;
   }
 }
 

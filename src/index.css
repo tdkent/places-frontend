@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Racing+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital@1&family=Montserrat:wght@400;700&family=Playfair+Display:ital@1&family=Racing+Sans+One&display=swap');
 
 * {
   box-sizing: border-box;
@@ -11,6 +11,11 @@ html {
 body {
   margin: 0;
   background: black;
+  background: #232646;
+}
+
+.container {
+  min-height: calc(100vh - 230px);
 }
 
 .slide-in-left-enter {
@@ -39,4 +44,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.white {
+  color: #f1f0ea;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.1rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
 }

@@ -135,11 +135,11 @@ const Auth = () => {
             onInput={inputHandler}
           />
           <Button type='submit' disabled={!formState.isValid}>
-            LOGIN
+            {isLogIn ? 'Login' : 'Sign Up'}
           </Button>
         </form>
         <Button inverse onClick={switchModeHandler}>
-          SIGN UP
+          {isLogIn ? 'Sign Up' : 'Log In'}
         </Button>
       </Card>
     </>

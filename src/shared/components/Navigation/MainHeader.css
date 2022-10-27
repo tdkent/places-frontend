@@ -3,13 +3,9 @@
   height: 6rem;
   display: flex;
   align-items: center;
-/*   position: fixed;
-  top: 0;
-  left: 0; */
   background: transparent;
-/*   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26); */
   padding: 3rem 4rem;
- /*  border:1px solid white; */
+  border-bottom: 2px solid #ee320f;
 }
 
 main {
@@ -19,5 +15,17 @@ main {
 @media (min-width: 768px) {
   .main-header {
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 900px) {
+  .main-header {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-top: 2rem;
   }
 }

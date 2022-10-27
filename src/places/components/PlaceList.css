@@ -5,3 +5,11 @@
   width: 90%;
   max-width: 40rem;
 }
+
+.place-list-container h2 {
+  text-align: center;
+}
+
+.place-list-header {
+  color:#f1f0ea
+}

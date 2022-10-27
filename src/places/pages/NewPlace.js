@@ -58,6 +58,7 @@ const NewPlace = () => {
   return (
     <>
       <ErrorModal error={error} onClear={clearError} />
+      <h2 className='center white'>Add a Place</h2>
       <form className='place-form' onSubmit={placeSubmitHandler}>
         {isLoading && <LoadingSpinner asOverlay />}
         <Input
@@ -87,7 +88,7 @@ const NewPlace = () => {
         />
         <ImageUpload id='image' onInput={inputHandler} errorText='Please provide an image.' />
         <Button type='submit' disabled={!formState.isValid}>
-          ADD PLACE
+          Submit
         </Button>
       </form>
     </>

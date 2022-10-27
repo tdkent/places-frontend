@@ -9,6 +9,7 @@ import UpdatePlace from './places/pages/UpdatePlace'
 import Auth from './user/pages/Auth'
 import { AuthContext } from './shared/context/auth-context'
 import './App.css'
+import Footer from './shared/components/Navigation/Footer'
 
 // new react router syntax: wrap Route instead of standalone
 // add exact keyword to only render the wrapped component at that route
@@ -93,7 +94,10 @@ const App = () => {
     <AuthContext.Provider value={{ isLoggedIn: !!token, token: token, userId: userId, login: login, logout: logout }}>
       <Router>
         <MainNavigation />
-        <main>{routes}</main>
+        <div className='container'>
+          <main>{routes}</main>
+        </div>
+        <Footer />
       </Router>
     </AuthContext.Provider>
   )

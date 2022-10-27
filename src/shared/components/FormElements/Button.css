@@ -1,9 +1,9 @@
 .button {
   font: inherit;
   padding: 0.5rem 1.5rem;
-  border: 1px solid #ff0055;
+  border: none;
   border-radius: 4px;
-  background: #ff0055;
+  background: #28779e;
   color: white;
   cursor: pointer;
   margin-right: 1rem;
@@ -15,32 +15,53 @@
   outline: none;
 }
 
+@keyframes button-hover {
+  from {background: #28779e};
+  to {background: #232646};
+}
+
 .button:hover,
 .button:active {
-  background: #ff4382;
-  border-color: #ff4382;
+/*   animation-name: button-hover;
+  animation-duration:1 sec; */
+  animation-name: button-hover;
+  animation-duration: .5s;
+  background: #232646;
+/*   border-color: #28779e; */
 }
 
 .button--inverse {
   background: transparent;
-  color: #ff0055;
+  color: #28779e;
+}
+
+@keyframes button-hover-inverse {
+  from{color: #28779e};
+  to{color: #232646};
 }
 
 .button--inverse:hover,
 .button--inverse:active {
-  color: white;
-  background: #ff0055;
+  animation-name: button-hover-inverse;
+  animation-duration: .5s;
+  background: transparent;
+  color: #232646;
 }
 
 .button--danger {
-  background: #830000;
-  border-color: #830000;
+  background: #ee320f;
+}
+
+@keyframes button-hover-danger {
+  from {background: #ee320f};
+  to {background: #c1290d}
 }
 
 .button--danger:hover,
 .button--danger:active {
-  background: #f34343;
-  border-color: #f34343;
+  animation-name: button-hover-danger;
+  animation-duration: .5s;
+  background: #c1290d;
 }
 
 .button:disabled,
@@ -50,6 +71,7 @@
   color: #979797;
   border-color: #ccc;
   cursor: not-allowed;
+  animation: none;
 }
 
 .button--small {

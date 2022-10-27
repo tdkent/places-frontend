@@ -1,17 +1,23 @@
 .users-list {
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-    width: 90%;
-    max-width: 50rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-   /*  border:1px solid white; */
-  }
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  max-width: 50rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /*  border:1px solid white; */
+}
 
 .users-list-header {
   text-align: center;
   color: #f1f0ea;
   font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .users-list-header {
+    font-size: 1.6rem;
+  }
 }

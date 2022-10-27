@@ -21,3 +21,10 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media (max-width: 768px) {
+  .image-upload__preview {
+    width: 10rem;
+    height: 10rem;
+  }
+}
