@@ -63,7 +63,7 @@ const NewPlace = () => {
         { 'Content-Type': 'application/json', Authorization: `Bearer ${auth.token}` }
       )
       console.log({ data })
-      // history.push('/')
+      history.push('/')
     } catch (error) {
       console.log(error)
     }
