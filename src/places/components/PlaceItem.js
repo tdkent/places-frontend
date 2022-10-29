@@ -77,7 +77,7 @@ const PlaceItem = ({ id, image, title, address, coordinates, description, creato
         <Card className='place-item__content'>
           {isLoading && <LoadingSpinner asOverlay />}
           <div className='place-item__image'>
-            <img src={`${process.env.REACT_APP_ASSET_API}` + image} alt={title} />
+            <img src={image} alt={title} />
           </div>
           <div className='place-item__info'>
             <h2>{title}</h2>

@@ -41,15 +41,29 @@ const NewPlace = () => {
     e.preventDefault()
     try {
       const formData = new FormData()
-      formData.append('title', formState.inputs.title.value)
-      formData.append('description', formState.inputs.description.value)
-      formData.append('address', formState.inputs.address.value)
-      formData.append('creator', auth.userId)
+      // formData.append('title', formState.inputs.title.value)
+      // formData.append('description', formState.inputs.description.value)
+      // formData.append('address', formState.inputs.address.value)
+      // formData.append('creator', auth.userId)
       formData.append('image', formState.inputs.image.value)
-      await sendRequest(`${process.env.REACT_APP_API_URL}/places`, 'POST', formData, {
+      const imageUrl = await sendRequest(`${process.env.REACT_APP_ASSET_API}`, 'POST', formData, {
         Authorization: `Bearer ${auth.token}`,
       })
-      history.push('/')
+      console.log({ imageUrl })
+      const data = await sendRequest(
+        `${process.env.REACT_APP_API_URL}/places`,
+        'POST',
+        JSON.stringify({
+          title: formState.inputs.title.value,
+          description: formState.inputs.description.value,
+          address: formState.inputs.address.value,
+          creator: auth.userId,
+          image: imageUrl.imageUrl,
+        }),
+        { 'Content-Type': 'application/json', Authorization: `Bearer ${auth.token}` }
+      )
+      console.log({ data })
+      // history.push('/')
     } catch (error) {
       console.log(error)
     }

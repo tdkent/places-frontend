@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { AuthContext } from '../../shared/context/auth-context'
@@ -26,7 +26,6 @@ const PlaceList = ({ items, setPlaces }) => {
       </div>
     )
   }
-  console.log(items)
   let username = items[0].creator.username
   return (
     <div className='place-list-container'>
