@@ -44,7 +44,6 @@ const Auth = () => {
           }),
           { 'Content-Type': 'application/json' }
         )
-        console.log({ data })
         auth.login(data.userId, data.token)
       } catch (error) {
         console.log(error)
@@ -53,12 +52,9 @@ const Auth = () => {
       try {
         // FormData is a browser API which accepts binary data, so it can be used to submit image data, as well as standard human-readable text, via fetch()
         const formData = new FormData()
-        // formData.append('name', formState.inputs.name.value)
-        // formData.append('email', formState.inputs.email.value)
-        // formData.append('password', formState.inputs.password.value)
         // 'image' is the key that the backend multer function is expecting
         formData.append('image', formState.inputs.image.value)
-        const imageUrl = await sendRequest(`${process.env.REACT_APP_ASSET_API}/auth`, 'POST', formData)
+        const imageUrl = await sendRequest(`${process.env.REACT_APP_ASSET_API}`, 'POST', formData)
         const data = await sendRequest(
           `${process.env.REACT_APP_API_URL}/users/register`,
           'POST',
@@ -104,7 +100,6 @@ const Auth = () => {
       )
     }
     setIsLogIn((prev) => !prev)
-    console.log('swiched mode to', isLogIn)
   }
 
   return (
