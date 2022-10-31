@@ -41,11 +41,6 @@ const NewPlace = () => {
   const placeSubmitHandler = async (e) => {
     e.preventDefault()
     try {
-      const geocode = await axios.get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${formState.inputs.address.value}&key=${process.env.REACT_APP_MAPS_API_KEY}`
-      )
-      const geoData = geocode.data.results[0].geometry.location
-      console.log(geoData)
       const formData = new FormData()
       formData.append('image', formState.inputs.image.value)
       const imageUrl = await sendRequest(`${process.env.REACT_APP_ASSET_API}`, 'POST', formData)
@@ -56,7 +51,6 @@ const NewPlace = () => {
           title: formState.inputs.title.value,
           description: formState.inputs.description.value,
           address: formState.inputs.address.value,
-          location: geoData,
           creator: auth.userId,
           image: imageUrl.imageUrl,
         }),
